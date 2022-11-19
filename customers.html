@@ -100,7 +100,7 @@
 
     <script>
 
-        const MYSERVER = 'https://shirs-library-rest-api.onrender.com/'
+     const MYSERVER = 'https://shirs-library-rest-api.onrender.com/'
 
         let res = []
 
@@ -127,27 +127,28 @@
         //add customer
         const add_customer = async () => {
             res1 = await axios.get(`${MYSERVER}/add_customer/`, {
-                method: 'POST',
-                body: ({
                     customer_name: user_customer_name.value,
                     city: user_city.value,
                     age: user_age.value,
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8'
-                },
-            }).then((response) => response.json())
+                })
+                .then(function (response) {
+                console.log(response);
+            })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
 
         //delete customer
         const del_customer = async (customer_id) => {
-            res2 = await axios.get(`${MYSERVER}/delete_customer/${customer_id}`, {
-                method: 'DELETE',
-            });
-        }
+        await axios.delete(`${MYSERVER}/delete_customer/${customer_id}`)
+        .then(() => console.log('del'))}
 
-
-
+        // const del_customer = async (customer_id) => {
+        //     res2 = await axios.get(`${MYSERVER}/delete_customer/${customer_id}`, {
+        //         method: 'DELETE',
+        //     });
+        // }
 
 
     </script>
