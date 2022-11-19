@@ -130,23 +130,18 @@
         // add book
         const add_book = async () => {
             res1 = await axios.post(`${MYSERVER}add_book/`, {
-                    book_name: user_book_name.value,
-                    author: user_author.value,
-                    year_published: user_year_published.value,
-                    book_type: user_book_type.value,
-                })
-                .then(function (response) {
-                console.log(response);
+                book_name: user_book_name.value,
+                author: user_author.value,
+                year_published: user_year_published.value,
+                book_type: user_book_type.value,
             })
-                .catch(function (error) {
-                    console.log(error);
-                });
         }
         displayBooks()
 
         //delete book
         const del_book = async (book_id) => {
-            res2 = await axios.delete(`${MYSERVER}delete_book/${book_id}`)}
+            res2 = await axios.delete(`${MYSERVER}delete_book/${book_id}`)
+        }
 
         //buy book = add to local storage
         const buy_book = (z) => {
