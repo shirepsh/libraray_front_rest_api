@@ -126,7 +126,7 @@
 
         //add customer
         const add_customer = async () => {
-            res1 = await axios.get(`${MYSERVER}/add_customer/`, {
+            res1 = await axios.post(`${MYSERVER}/add_customer/`, {
                     customer_name: user_customer_name.value,
                     city: user_city.value,
                     age: user_age.value,
