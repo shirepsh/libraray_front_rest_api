@@ -146,10 +146,7 @@
 
         //delete book
         const del_book = async (book_id) => {
-            res2 = await axios.get(`${MYSERVER}delete_book/${book_id}`, {
-                method: 'DELETE',
-            });
-        }
+            res2 = await axios.delete(`${MYSERVER}delete_book/${book_id}`)}
 
         //buy book = add to local storage
         const buy_book = (z) => {
