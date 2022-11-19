@@ -126,28 +126,17 @@
 
         //add customer
         const add_customer = async () => {
-            res1 = await axios.get(`${MYSERVER}/add_customer/`, {
-                method: 'POST',
-                body: ({
-                    customer_name: user_customer_name.value,
-                    city: user_city.value,
-                    age: user_age.value,
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8'
-                },
-            }).then((response) => response.json())
+            res1 = await axios.post(`${MYSERVER}/add_customer/`, {
+                customer_name: user_customer_name.value,
+                city: user_city.value,
+                age: user_age.value,
+            })
         }
 
         //delete customer
         const del_customer = async (customer_id) => {
-            res2 = await axios.get(`${MYSERVER}/delete_customer/${customer_id}`, {
-                method: 'DELETE',
-            });
+            res2 = await axios.delete(`${MYSERVER}/delete_customer/${customer_id}`)
         }
-
-
-
 
 
     </script>

@@ -89,8 +89,8 @@
 
     </ul>
 
-    <h5> add book </h5>
-    book name: <input type="string" id="user_book_name" > <br>
+    <h5> addgggjgjk book </h5>
+    book name: <input type="string" id="user_book_name"> <br>
     author: <input id="user_author" required> <br>
     year published: <input id="user_year_published"> <br>
     book type: <input type="number" min=1 max=3 id="user_book_type"> <br>
@@ -129,27 +129,18 @@
 
         // add book
         const add_book = async () => {
-            res1 = await axios.get(`${MYSERVER}add_book/`, {
-                method: 'POST',
-                body: ({
-                    book_name: user_book_name.value,
-                    author: user_author.value,
-                    year_published: user_year_published.value,
-                    book_type: user_book_type.value,
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-            }).then((response) => response.json())
-        }
+            res1 = await axios.post(`${MYSERVER}add_book/`, {
+                book_name: user_book_name.value,
+                author: user_author.value,
+                year_published: user_year_published.value,
+                book_type: user_book_type.value,
+            })
+            }
         displayBooks()
 
         //delete book
         const del_book = async (book_id) => {
-            res2 = await axios.get(`${MYSERVER}delete_book/${book_id}`, {
-                method: 'DELETE',
-            });
-
+            res2 = await axios.delete(`${MYSERVER}delete_book/${book_id}`)
         }
 
         //buy book = add to local storage
