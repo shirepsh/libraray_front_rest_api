@@ -119,28 +119,18 @@
 
         //add loan
         const add_loan = async () => {
-            res1 = await axios.get(`${MYSERVER}add_loan/`, {
-                method: 'POST',
-                body: ({
-                    customer_id: user_customer_id.value,
-                    book_id: user_book_id.value,
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
+            res1 = await axios.post(`${MYSERVER}add_loan/`, {
+                customer_id: user_customer_id.value,
+                book_id: user_book_id.value,
             })
         }
 
         //delete loan
         const del_loan = async (loan_id) => {
-            res2 = await axios.get(`${MYSERVER}/delete_loan/${loan_id}`, {
-                method: 'DELETE',
-            });
+            res2 = await axios.delete(`${MYSERVER}/delete_loan/${loan_id}`)
         }
+
     </script>
-
-
-
 </body>
 
 </html>
